@@ -1,0 +1,163 @@
+<style>
+  #no{ 
+    margin-left:5%; 
+  }
+  #btn_group button{
+    border: 1px solid skyblue; 
+    background-color: rgba(0,0,0,0); 
+    color: skyblue; 
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; 
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 20%;
+    height: 40%;
+  }
+  #btn_group h1{
+      margin-bottom: 15%;
+  }
+  #btn_group button:hover{ 
+    color:white; 
+    background-color: skyblue; 
+  }
+</style>
+<div id="btn_group" style="text-align: center;">
+</div>
+<script>
+
+  var bookArr = [
+        {num : 0, detail : [
+            {aka : "선과 악", title : "제목 : 죄와 벌", author : "저자 : 표도르 도스토옙스키", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "메멘토 모리", title : "제목 : 이반 일리치의 죽음", author : "저자 : 레프 톨스토이", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 1, detail : [
+            {aka : "라이트 픽", title : "제목 : 오만과 편견", author : "저자 : 제인 오스틴", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "메멘토 모리", title : "제목 : 폭풍의 언덕", author : "저자 : 에밀리 브론테", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 2, detail : [
+            {aka : "정치 우화 대표작", title : "제목 : 동물농장", author : "저자 : 조지 오웰", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "빅토리아 여왕 시대", title : "제목 : 위대한 유산", author : "저자 : 찰스 디킨스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 3, detail : [
+            {aka : "빅 브라더!", title : "제목 : 1984", author : "저자 : 조지 오웰", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "외계인 침공", title : "제목 : 우주 전쟁", author : "저자 : 하버트 조지 웰즈", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 4, detail : [
+            {aka : "트로이아 전쟁", title : "제목 : 일리아스", author : "저자 : 호메로스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "트로이아 전쟁 이후", title : "제목 : 오디세이아", author : "저자 : 호메로스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 5, detail : [
+            {aka : "초월주의", title : "제목 : 풀잎", author : "저자 : 윌트 휘트먼", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "딥 다크", title : "제목 : 에드거 앨런 포 단편선", author : "저자 : 에드거 앨런 포", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"},
+            {aka : "short", title : "제목 : 디킨슨 시선", author : "저자 : 에밀리 디킨슨", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 6, detail : [
+            {aka : "향해 여행", title : "제목 : 보물섬", author : "저자 : 로버트 루이스 스티븐슨", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "Rural America", title : "제목 : 톰 소여의 모험", author : "저자 : 마크 트웨인", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"},
+            {aka : "미들어스", title : "제목 : 호빗", author : "저자 : J.R.R. 톨킨", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 7, detail : [
+            {aka : "외계인 침공", title : "제목 : 타이탄의 미녀", author : "저자 : 커트 보니것", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "정신 질환", title : "제목 : 챔피온들의 아침식사", author : "저자 : 커트 보니것", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 8, detail : [
+            {aka : "1차 세계대전 이후", title : "제목 : 낙원의 이쪽", author : "저자 : F.스콧 피츠제럴드", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "인생의 기본과 원칙", title : "제목 : 월든", author : "저자 : 헨리 데이비드 소로", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 9, detail : [
+            {aka : "감정 억제", title : "제목 : 기억전달자", author : "저자 : 로리스 로리", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "어드벤처", title : "제목 : 헝거게임", author : "저자 : 수잔 콜린스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 10, detail : [
+            {aka : "국제 스릴러", title : "제목 : 인페르노", author : "저자 : 댄 브라운", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "심리학 스릴러", title : "제목 : 걸 온 더 트레인", author : "저자 : 폴라 호킨스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"},
+            {aka : "전체주의 신권정치", title : "제목 : 시녀 이야기", author : "저자 : 마거릿 애트우드", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 11, detail : [
+            {aka : "감시", title : "제목 : 더 서클", author : "저자 : 데이브 에거스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "화성에서 미션 수행", title : "제목 : 마션", author : "저자 : 앤디 위어", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 12, detail : [
+            {aka : "시간 여행", title : "제목 : 11/22/63", author : "저자 : 스티븐 킹", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "호러 히스토리", title : "제목 : 뱀파이어 헌터, 에이브러햄 링컨", author : "저자 : 세스 그레이엄 스미스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 13, detail : [
+            {aka : "12세기 영국", title : "제목 : 대지의 기둥", author : "저자 : 켄 폴릿", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "16세기 영국", title : "제목 : 울프 홀", author : "저자 : 힐러리 맨틀", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+        {num : 14, detail : [
+            {aka : "친밀할 인간관계", title : "제목 : 커져버린 사소한 거짓말", author : "저자 : 리안 모리아티", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=6874109"},
+            {aka : "도미니카계 미국인", title : "제목 : 오스카 와오의 짧고 놀라운 삶", author : "저자 : 주노 디아스", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"},
+            {aka : "전체주의 신권정치", title : "제목 : 시녀 이야기", author : "저자 : 마거릿 애트우드", link : "https://book.naver.com/bookdb/book_detail.nhn?bid=7026084"}]
+        },
+  ];
+
+  var questionArr = [
+        {stage : 0, txt : "픽션 좋아해?", yes : [1, "undefined"], no : ["undefined", "undefined"]},
+        {stage : 1, txt : "클래식 픽션은 어때?", yes : [2, "undefined"], no : ["undefined", "undefined"]},
+        {stage : 2, txt : "영국 문학 볼래?", yes : [4, "undefined"], no : [3, "undefined"]},
+        {stage : 3, txt : "러시아 문학 볼래?", yes : ["undefined", 0], no : ["undefined", "undefined"]}
+   ];
+
+
+  function createQuestion(_question) {
+    var questionEl = document.createElement("h1");
+    questionEl.innerHTML = _question;
+    questionEl.setAttribute('data-ke-size', 'size26');
+    return questionEl;
+  }
+
+  function createBtn(_txt, _id, _stage) {
+    var btnEl = document.createElement("button");
+    btnEl.innerHTML = _txt;
+    btnEl.id = _id;
+    if (_stage[0] === 'undefined') {
+        btnEl.addEventListener('click', function() {
+            drawBook(_stage[1]);
+        });
+    } else {
+        btnEl.addEventListener('click', function() {
+            drawBox(_stage[0]);
+        });
+    }
+    return btnEl;
+  }
+
+  function drawBox(_idx) {
+    var parentEl = document.getElementById('btn_group');
+    parentEl.innerHTML = '';
+    parentEl.appendChild(createQuestion(questionArr[_idx].txt));
+    parentEl.appendChild(createBtn('Yes', 'yes', questionArr[_idx].yes));
+    parentEl.appendChild(createBtn('No', 'no', questionArr[_idx].no));
+  }
+
+  function drawBook(_idx) {
+    var parentEl = document.getElementById('btn_group');
+    parentEl.innerHTML = '';
+    for (var key of Object.keys(bookArr[_idx].detail)) {
+            var _h1 = document.createElement("h2");
+            _h1.setAttribute('data-ke-size', 'size26');
+            var _span = document.createElement("span");
+            _span.setAttribute('style', 'background-color: #99cefa; color: #ffffff;');
+            _span.innerHTML = bookArr[_idx].detail[key].aka;
+            _h1.appendChild(_span);
+            var _pTitle = document.createElement("p");
+            _pTitle.innerHTML = bookArr[_idx].detail[key].title;
+            var _pAuthor = document.createElement("p");
+            _pAuthor.innerHTML = bookArr[_idx].detail[key].author;
+            var _a = document.createElement("a");
+            _a.innerHTML = bookArr[_idx].detail[key].link;
+            _a.href = bookArr[_idx].detail[key].link;
+            _a.target = '_blank';
+            parentEl.appendChild(_h1);
+            parentEl.appendChild(_pTitle);
+            parentEl.appendChild(_pAuthor);
+            parentEl.appendChild(_a);
+        }
+  }
+
+  var parentEl = document.getElementById('btn_group');
+  parentEl.appendChild(createQuestion('읽고 싶은 책 찾기'));
+  parentEl.appendChild(createBtn('시작', 'yes', [0, 'undefined']));
+</script>
