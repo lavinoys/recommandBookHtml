@@ -1,29 +1,39 @@
 <style>
-  #no{ 
-    margin-left:5%; 
-  }
-  #btn_group button{
-    border: 1px solid skyblue; 
-    background-color: rgba(0,0,0,0); 
-    color: skyblue; 
-    padding: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px; 
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    width: 20%;
-    height: 40%;
-  }
-  #btn_group h1{
-      margin-bottom: 15%;
-  }
-  #btn_group button:hover{ 
-    color:white; 
-    background-color: skyblue; 
-  }
-</style>
-<div id="btn_group" style="text-align: center;">
-</div>
+    #no{ 
+      margin-left:5%; 
+    }
+    #btn_group button{
+      border: 1px solid skyblue; 
+      background-color: rgba(0,0,0,0); 
+      color: skyblue; 
+      padding: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; 
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      width: 20%;
+      height: 40%;
+    }
+    #btn_group h1{
+        margin-bottom: 15%;
+    }
+    #btn_group button:hover{ 
+      color:white; 
+      background-color: skyblue; 
+    }
+  </style>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-style="style13">
+    <tbody>
+        <tr>
+            <td style="width: 100%; text-align: center;">읽고 싶은 책 찾기</td>
+        </tr>
+        <tr>
+            <td style="width: 100%;">
+                <div id="btn_group" style="text-align: center;"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 <script>
 
   var bookArr = [
@@ -251,7 +261,7 @@
             var _h1 = document.createElement("h2");
             _h1.setAttribute('data-ke-size', 'size26');
             var _span = document.createElement("span");
-            _span.setAttribute('style', 'background-color: #99cefa; color: #ffffff;');
+            // _span.setAttribute('style', 'background-color: #99cefa; color: #ffffff;');
             _span.innerHTML = bookArr[_idx].detail[key].aka;
             _h1.appendChild(_span);
             var _pTitle = document.createElement("p");
